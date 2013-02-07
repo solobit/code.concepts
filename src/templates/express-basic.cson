@@ -1,0 +1,14 @@
+
+$PROJECT_ROOT:
+  files: [
+    'package.json'
+    'app.js'
+  ]
+  folders: [
+    'public'
+  ]
+
+
+
+
+

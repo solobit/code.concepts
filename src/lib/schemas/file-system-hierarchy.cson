@@ -1,0 +1,35 @@
+{
+  type: "object"
+  id: "folder"
+  additionalProperties: false
+  properties:
+    name:
+      required: true
+      type: "string"
+
+    type:
+      required: true
+      type: "string"
+      enum: [ "folder" ]
+
+    contents:
+      required: true
+      type: "array"
+      additionalItems: false
+      items: [
+        $ref: "folder"
+      ,
+        type: "object"
+        id: "file"
+        additionalProperties: false
+        properties:
+          name:
+            required: true
+            type: "string"
+
+          type:
+            required: true
+            type: "string"
+            enum: [ "file" ]
+       ]
+}

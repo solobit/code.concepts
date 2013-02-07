@@ -1,0 +1,8 @@
+
+usr/share/node_modules/
+tmp/*
+*.tmp
+*.db
+*.log
+./usr/lib/jvm/lib/eng_sm6.gr
+./usr/share/appjs-linux-x64/libs/libcef.so

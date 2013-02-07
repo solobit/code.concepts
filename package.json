@@ -1,0 +1,7 @@
+{
+  "name": "solobit-project",
+  "version": "0.0.1",
+  "preferGlobal": true,
+  "private": true,
+  "dependencies": { }
+}
