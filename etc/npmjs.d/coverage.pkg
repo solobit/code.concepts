@@ -1,0 +1,12 @@
+NAME                  DESCRIPTION                                                   AUTHOR                DATE              KEYWORDS
+coffee-coverage       JSCoverage-style instrumentation for CoffeeScript files.      =jwalton              2012-12-18 16:21  javascript coffeescript coverage code coverage test
+coverage-report       Uses node-jscoverage to annotate a node project's source code to make the specs gather test coverage information. Prints summary on the coverage info before the process exits. =roddik 2012-09-28 14:02
+coverjs               JSCoverage compatible JavaScript code coverage tool           =arian                2012-12-29 16:17
+jscov                 JSCoverage, implemented in JavaScript                         =jakobm               2013-01-09 15:14
+jscover               node wrap for JSCover.                                        =fengmk2              2012-12-11 16:28  jscover JSCover jscoverage
+jscoverage            a javascript coverage tool, can be used in node dev, and browser side js dev =kate.sf =fish =sunfang1cn 2013-01-16 08:16 jscoverage node javascript coverage dev tool
+jscoverage-reporter   JSCoverage reporter for Jasmine                               =danielr              2012-04-23 18:15  testing jasmine jscoverage
+node_jscoverage       jscoverage module for node.js                                 =kate.sf              2012-02-26 07:54
+visionmedia-jscoverage JSCoverage for node                                          =aleafs               2012-04-20 06:22  jscoverage
+xunit-cov             The XunitCov reporter is similar to the xunit reporter, however when run against a library instrumented by node-jscoverage it will produce coverage output. =neco 2012-09-18 02:22  mocha xunit reporter coverage
+xunit-html-cov        The XunitHTMLCov reporter is similar to the xunit and html reporter, however when run against a library instrumented by node-jscoverage it will produce coverage output. =neco 2013-01-16 03:14  mocha xunit html file coverage reporter

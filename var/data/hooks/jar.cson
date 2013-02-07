@@ -1,0 +1,9 @@
+
+
+parser: "http://berkeleyparser.googlecode.com/files/BerkeleyParser-1.7.jar"
+grammar: "http://berkeleyparser.googlecode.com/files/eng_sm6.gr"
+documentation: [
+  "http://www.ling.ohio-state.edu/~hinrichs/course07/ptb.pdf",
+
+
+]

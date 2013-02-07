@@ -1,0 +1,10 @@
+
+name: "bender-pkg-default"
+version: "0.0.1"
+dependencies:
+  cson: "*"
+  shelljs: "*"
+peerDependencies:
+  "docpad": "6.x"
+
+

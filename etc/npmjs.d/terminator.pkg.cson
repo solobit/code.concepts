@@ -1,0 +1,16 @@
+
+# vim: ft=coffee:
+
+name: "terminator-nodecli"
+version: "0.0.1"
+ssssssssssss:
+
+  # Stringifies key objects emitted by nodejs readline.
+  # key =  { name: 'c', ctrl: true, meta: true, shift: true };
+  # console.log(stringifyKey(key)); // shift-meta-ctrl-c
+  "stringify-key": "*"
+
+  # Parses strings into key objects of the same format as the ones emitted by nodejs readline.
+  # parse('shift-ctrl-c') // returns { name: 'c', ctrl: true, meta: false, shift: true, alt: false }
+  "parse-key"
+

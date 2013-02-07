@@ -1,0 +1,256 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "title": "Package definition object",
+  "name": "pkg",
+  "description": "This is the container object holding npm configuration meta-data for packages.",
+  "id": "#",
+  "required":true,
+  "properties":{
+    "analyze": {
+      "type":"boolean",
+      "title": "Allow source analysis?",
+      "name": "analyze",
+      "description": "Flag that indicates if the package should not have it's source code analyzed in anyway.",
+      "id": "analyze",
+      "required":false
+    },
+    "author": {
+      "type":"object",
+      "title": "Author of the package",
+      "name": "author",
+      "description": "The 'author' is one person.  A 'person' is an object with a 'name' field and optionally 'url' and 'email'",
+      "id": "author",
+      "required":false
+    },
+    "bin": {
+      "type":"object",
+      "title": "Binary scripts names and paths",
+      "name": "bin",
+      "description": "A hash containing key/pair mappings of binary script names and node.js script paths. This is used to expose binary scripts from your package. It's useful for creating command line interfaces.",
+      "id": "bin",
+      "required":false,
+      "properties":{
+        "http-server": {
+          "type":"string",
+          "id": "http-server",
+          "required":false
+        }
+      }
+    },
+    "bundledDependencies": {
+      "type":"array",
+      "title": "Bundled dependencies",
+      "name": "bundledDependencies",
+      "description": "Array of package names that will be bundled when publishing the package.  If this is spelled 'bundleDependencies', then that is also honorable.",
+      "id": "bundledDependencies",
+      "required":false,
+      "items":
+        {
+          "type":"string",
+          "id": "0",
+          "required":false
+        }
+
+
+    },
+    "contributors": {
+      "type":"array",
+      "title": "Contributors to the project",
+      "name": "contributors",
+      "description": "An array of objects representing contributors to the project. Each object represents one contributor.",
+      "id": "contributors",
+      "required":false,
+      "items":
+        {
+          "type":"object",
+          "title": "Contributor",
+          "name": "contributor",
+          "description": "A person who contributed to this project.",
+          "id": "0",
+          "required":false,
+          "properties":{
+            "site": {
+              "type":"string",
+              "title": "Web site URL",
+              "name": "site",
+              "description": "The web site URL of the contributing person or company.",
+              "required":false
+            },
+            "email": {
+              "type":"string",
+              "title": "Email",
+              "name": "email",
+              "description": "A digital mail address with which you can send electronic mails.",
+              "required":false
+            },
+            "name": {
+              "type":"string",
+              "title": "Name of contributor",
+              "name": "bane",
+              "description": "The full name(s) or pseudonym of this person who contributed.",
+              "id": "0",
+              "required":false
+            }
+          }
+        }
+
+
+    },
+    "dependencies": {
+      "type":"object",
+      "title": "Dependencies",
+      "name": "dependencies",
+      "description": "Dependencies are specified with a simple hash of package name to version range. The version range is EITHER a string which has one or more space-separated descriptors, OR a range like fromVersion - toVersion",
+      "id": "dependencies",
+      "required":false,
+      "properties":{
+        "docpad": {
+          "type":"string",
+          "id": "docpad",
+          "required":false
+        }
+      }
+    },
+    "description": {
+      "type":"string",
+      "title": "Full description",
+      "name": "description",
+      "description": "Put a description in it. It's a string. This helps people discover your package, as it's listed in npm search.",
+      "id": "description",
+      "required":false
+    },
+    "devDependencies": {
+      "type":"object",
+      "id": "devDependencies",
+      "required":false
+    },
+    "engines": {
+      "type":"object",
+      "title": "Engines",
+      "name": "engines",
+      "description": "Like with dependencies, if you don't specify the version (or if you specify '*' as the version), then any version of node will do.  If you specify an 'engines' field, then npm will require that 'node' be somewhere on that list. If 'engines' is omitted, then npm will just assume that it works on node. You can also use the 'engines' field to specify which versions of npm are capable of properly installing your program.",
+      "id": "engines",
+      "required":false,
+      "properties":{
+        "node": {
+          "type":"string",
+          "id": "node",
+          "required":false
+        }
+      }
+    },
+    "keywords": {
+      "type":"array",
+      "title": "List of searchable keywords",
+      "name": "keywords",
+      "description": "Put keywords in it. It's an array of strings. This helps people discover your package as it's listed in npm search.",
+      "id": "keywords",
+      "required":false,
+      "items":
+        {
+          "type":"string",
+          "id": "0",
+          "required":false
+        }
+
+
+    },
+    "license": {
+      "type":"string",
+      "title": "License",
+      "name": "license",
+      "description": "The license which you prefer to release your project under. MIT is a good choice.",
+      "id": "license",
+      "required":false
+    },
+    "main": {
+      "type":"string",
+      "title": "Main entry point",
+      "name": "main",
+      "description": "The main entry point of the package. When calling require('http-server') in node.js this is the file that will actually be required.  It's highly advised that requiring the main file NOT generate any side-effects.   For instance, requiring the main file should NOT start up an HTTP server or connect to database. Instead, you should create something like exports.init in your main script. ",
+      "id": "main",
+      "required":false
+    },
+    "name": {
+      "type":"string",
+      "title": "Package name",
+      "name": "name",
+      "description": "The unique name of your package.",
+      "id": "name",
+      "required":true
+    },
+    "preferGlobal": {
+      "type":"boolean",
+      "title": "Prefers global installation?",
+      "name": "preferGlobal",
+      "description": "Flag that indicates this package prefers to be installed globally. This is usually reserved for packages that contain command line interfaces ( CLIs ). In most situations, you will NOT use this property.",
+      "id": "preferGlobal",
+      "required":false
+    },
+    "repository": {
+      "type":"object",
+      "title": "Source code repository",
+      "name": "repository",
+      "description": "A hash containing key/pair mappings of source code repositories. Often, we will specify a git repository hosted on Github",
+      "id": "repository",
+      "required":false,
+      "properties":{
+        "type": {
+          "type":"string",
+          "title": "Type of repository",
+          "name": "type",
+          "description": "It could be 'git' or 'svn'",
+          "id": "type",
+          "required":false
+        },
+        "url": {
+          "type":"string",
+          "title": "URL address",
+          "name": "url",
+          "description": "The URL should be a publicly available (perhaps read-only) url that can be handed directly to a VCS program without any modification. It should not be a url to an html project page that you put in your browser. It's for computers.",
+          "id": "url",
+          "required":false
+        }
+      }
+    },
+    "scripts": {
+      "type":"object",
+      "title": "Included scripting",
+      "name": "scripts",
+      "description": "A hash containing key/pair mappings of npm commands and node.js script paths. This is used to map specific entry points into your package that npm can use in all sorts of cool ways. The 'scripts' member is an object hash of script commands that are run at various times in the lifecycle of your package. The key is the lifecycle event, and the value is the command to run at that point.",
+      "id": "scripts",
+      "required":false,
+      "properties":{
+        "postdeploy": {
+          "type":"string",
+          "id": "postdeploy",
+          "required":false
+        },
+        "predeploy": {
+          "type":"string",
+          "id": "predeploy",
+          "required":false
+        },
+        "start": {
+          "type":"string",
+          "id": "start",
+          "required":false
+        },
+        "test": {
+          "type":"string",
+          "id": "test",
+          "required":false
+        }
+      }
+    },
+    "version": {
+      "type":"string",
+      "title": "Version",
+      "name": "version",
+      "description": "Version of the package as specified by Semantic Versioning.  It's important to keep track of your package versions in a smart way. If you don't follow standard versioning techniques, it will be difficult for users to keep track of your packages.",
+      "id": "version",
+      "required":true
+    }
+  }
+}

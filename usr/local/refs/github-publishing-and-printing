@@ -1,0 +1,12 @@
+
+# vim: ft=coffee
+
+
+linting:
+  benkomalo       : "khan-linter"
+
+building:
+
+  "fortes"        : "coffee-script-project-template"
+  "Treesaver"     : "treesaver"
+

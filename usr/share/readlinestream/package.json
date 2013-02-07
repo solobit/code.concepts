@@ -1,0 +1,26 @@
+{
+  "name": "readlinestream",
+  "version": "0.1.0",
+  "description": "Read a file line by line",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Acconut/linestream.git"
+  },
+  "keywords": [
+    "line",
+    "stream",
+    "read"
+  ],
+  "author": {
+    "name": "Acconut"
+  },
+  "license": "http://creativecommons.org/licenses/by/3.0/deed",
+  "readme": "#ReadLineStream\r\n... is a Node.js module to read a file line by line.\r\n\r\n##Intsallation\r\n`npm install readlinestream`\r\n\r\nIn your file:\r\n\r\n```javascript\r\nvar rls = require(\"readlinestream\");\r\nvar stream = rls.createReadStream(\"eitel.txt\");\r\nstream.on(\"line\", function(line) {\r\n\tconsole.log(\"Line: \" + line);\r\n});\r\n```\r\n",
+  "readmeFilename": "README.md",
+  "_id": "readlinestream@0.1.0",
+  "dist": {
+    "shasum": "52fa906aa17ee8a3ae83259252e9173f61da7bd0"
+  },
+  "_from": "readlinestream"
+}

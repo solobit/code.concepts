@@ -1,0 +1,36 @@
+{
+  "name": "parse-key",
+  "version": "0.1.1",
+  "description": "Parses strings into key objects of the same format as the ones emitted by nodejs readline.",
+  "main": "parse-key.js",
+  "scripts": {
+    "test": "node-trap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thlorenz/parse-key.git"
+  },
+  "keywords": [
+    "readline",
+    "string",
+    "print",
+    "convert"
+  ],
+  "author": {
+    "name": "Thorsten Lorenz",
+    "email": "thlorenz@gmx.de",
+    "url": "thlorenz.com"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "trap": "~0.3.2"
+  },
+  "readme": "# parse-key [![build status](https://secure.travis-ci.org/thlorenz/parse-key.png)](http://next.travis-ci.org/thlorenz/parse-key)\n\nParses strings into key objects of the same format as the ones emitted by [nodejs readline](http://nodejs.org/api/readline.html).\n\nCounter part to [stringify-key](https://github.com/thlorenz/stringify-key).\n\n## Installation\n\n    npm i parse-key\n\n## Usage\n\n```js\nvar parse = require('parse-key');\n\nparse('ctrl-c')       // returns { name: 'c', ctrl: true, meta: false, shift: false, alt: false }\n\nparse('shift-ctrl-c') // returns { name: 'c', ctrl: true, meta: false, shift: true, alt: false }\n\nparse('alt-c')        // returns { name: 'c', ctrl: false, meta: false, shift: false, alt: true }\n```\n\n## Caveats\n\nFor completeness' sake, the `alt` modifier is parsed and included with the returned `key` although the nodejs readline does not\ninclude it in its `key` object nor does it have any effect when the key is emitted.\n",
+  "readmeFilename": "README.md",
+  "_id": "parse-key@0.1.1",
+  "dist": {
+    "shasum": "42ea2900ea0392e12a35cdcb2ca4094a892204e8"
+  },
+  "_from": "parse-key"
+}

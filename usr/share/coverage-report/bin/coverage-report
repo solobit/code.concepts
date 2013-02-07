@@ -1,0 +1,61 @@
+#!/bin/bash
+
+if [[ `command -v jscoverage` == "" ]]; then
+	echo "jscoverage should be available on PATH"
+	exit 1
+fi
+
+if [[ -L $0 ]]; then
+	FILE=`readlink $0`
+else
+	FILE=$0
+fi
+
+
+DIR="$( cd "$( dirname "$FILE" )" && pwd )"
+
+function usage {
+	echo "$(basename $0) [-h] [-l lib] [-m 100] -- calculate jasmine test coverage using node-coverage
+
+where:
+    -h  show this help text
+    -l  lib folder, default: lib
+    -m  min coverage to not show the untested lines"
+
+	exit
+}
+
+lib="lib"
+min="100"
+
+while getopts ':hl:m:' option; do
+  case "$option" in
+    h) usage ;;
+    l) lib=$OPTARG ;;
+    m) min=$OPTARG ;;
+    ?) printf "illegal option: '%s'\n" "$OPTARG" >&2
+       usage ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+if [[ "$@" == "" ]]; then
+	echo Specify the directory or file to test
+	exit
+fi
+
+lib_path="$PWD/$lib"
+lib_bak="$PWD/$lib-coverage-bak"
+
+mv $lib_path $lib_bak
+jscoverage --no-highlight --encoding=UTF-8 $lib_bak $lib_path
+
+cd $PWD
+NODE_ENV=test MINCOVERAGE=$min node $DIR/../report.js $@
+cd $DIR
+
+if [[ -d $lib_bak ]]; then
+	rm -rf $lib_path
+	mv $lib_bak $lib_path
+fi
+

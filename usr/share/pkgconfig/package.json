@@ -1,0 +1,43 @@
+{
+  "name": "pkgconfig",
+  "version": "0.0.4",
+  "description": "Reads and validates JSON configuration files for Node.js packages.",
+  "keywords": [
+    "config",
+    "json",
+    "schema"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "author": {
+    "name": "Frank Hellwig",
+    "email": "frank@hellwig.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fhellwig/pkgconfig.git"
+  },
+  "main": "./pkgconfig.js",
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "dependencies": {
+    "findpkg": "0.0.x",
+    "jsvutil": "0.0.x",
+    "strformat": "0.0.x"
+  },
+  "engine": {
+    "node": ">=0.8"
+  },
+  "readme": "# pkgconfig\n\nReads and validates JSON configuration files for Node.js packages.\n\n## Overview\n\nApplications often get their settings from configuration files. These files are usually structured as JSON text or JavaScript objects. Reading these files is easily accomplished. However, validating that the values are of the correct type or fall within an appropriate range should not be performed by application code. Reading configuration files and validating them against a JSON schema is the object of the pkgconfig utility.\n\nThis package uses the [findpkg](https://github.com/fhellwig/findpkg) utility for finding the top-level package directory of the module requiring pkgconfig. It then looks for a `config` directory in this top-level directory. The `config` directory must contain a configuration file and a schema file. The configuration file is read and validated against the schema file using the [JSV](https://github.com/garycourt/JSV) implementation.\n\n## Installation\n\nThis section describes the installation of pkgconfig and the default directory layout.\n\n### Dependencies\n\nAdd pkgconfig to your `package.json` depencencies and run `npm install`.\n\n    \"dependencies\": {\n        ...,\n        \"pkgconfig\": \"a.b.c\"\n    }\n\n    $ npm install\n\n### Layout\n\nCreate a `config` directory in the top-level directory of your Node.js application. Add a `schema.json` and a `config.json` file to this directory.\n\n    myapp/\n        config/\n            config.json\n            schema.json\n        package.json\n        server.js\n\n## Usage\n\nThis section describes the pkgconfig function, the default values, the options object, and environment variables.\n\n### Configuration Function\n\nRequire pkgconfig and call the function returned from `require('pkgconfig')`.\n\n```javascript\nvar pkgconfig = require('pkgconfig');\nvar config = pkgconfig();\n```\n\nThis reads the `config.json` configuration file and validates it against the `schema.json` schema file.\n\nReturns a configuration object. Throws an exception if there is an error reading the schema or configuration file or if the configuration data does not validate against the schema.\n\n### Default Values\n\nBe default, pkgconfig looks for the following schema and a configuration files:\n\n- `<your-package-base>/config/schema.(js|json)`\n- `<your-package-base>/config/config.(js|json)`\n\n### Options Parameter\n\nThese defaults can be changed by passing an options object to the `pkgconfig` function.\n\n```javascript\nvar pkgconfig = require('pkgconfig');\n\nvar options = {\n    schema: <schema object or file pathname>,\n    config: <config object or file pathname>\n};\n\nvar config = pkgconfig(options);\n```\n\n#### Notes:\n\n1. Either one of these properties can be a JavaScript object or the pathname to a file (with or without an extension). If an options property is not specified, it falls back to the default value.\n2. If it is a pathname, then it is resolved against the requiring package's base directory unless the pathname begins with a dot (i.e., `./` or `../`) in which case it is resolved against the current working directory.\n3. If the options parameter is a string instead of an object, then it is used as the `config` option filename and the `schema` option defaults to its default value. \n\n### Environment Variables\n\nThe following two environment variables change the default config option.\n\n1. The `NODE_CONFIG_DIR` environment variable changes the default config directory unless explicitly specified by the options.\n2. The `NODE_ENV` environment variable changes the default config filename (basename) unless explicitly specified by the options.\n\n#### Notes:\n\n1. The environment variables only effect the default config option. If this option is explicitly specified in the options object, then the environment variables are not used.\n2. The environment variables have no effect on the schema file location since this must not be user-configurable.\n\nThe following code snippet summarizes how the environment variables are used. Again, note how they only effect the configuration file, and not the schema file.\n\n```javascript\nvar DEFAULT_SCHEMA = path.join('config', 'schema');\nvar CONFIG_DIR = process.env['NODE_CONFIG_DIR'] || 'config'\nvar CONFIG_ENV = process.env['NODE_ENV'] || 'config'\nvar DEFAULT_CONFIG = path.join(CONFIG_DIR, CONFIG_ENV);\n```\n\n### Filename Extensions\n\nBoth `.js` and `.json` files are valid schema and configuration file extensions and are tried in that order if the schema or config filename (after resolution) does not identify a file. If a JavaScript file is used for either the schema or the configuration file, then the object must be exported using the `module.exports` variable.\n\n## Example\n\nHere is a sample `schema.json` schema file and a sample `config.json`\nconfiguration file that is valid against the schema.\n\n### Sample schema.json file\n\nThis is a sample JSON schema file that requires a port number having a range of\none to 65,535 and having a default value of 80.\n\n```json\n{\n    \"properties\": {\n        \"port\": {\n            \"description\": \"The web server port number.\",\n            \"type\": \"integer\",\n            \"required\": true,\n            \"minimum\": 1,\n            \"maximum\": 65535,\n            \"default\": 80\n        }\n    }\n}\n```\n\n### Sample config.json file\n\nThis is a sample JSON configuration file that specifies the port as being 8080.\n\n```json\n{\n    \"port\": 8080\n}\n```\n\n### Alternate file format\n\nJavaScript files can be used instead of JSON files by simple setting the\n`module.exports` value.\n\nA `schema.js` file can be used instead of the `schema.json` file.\n\n```javascript\nvar schema = {\n    properties: {\n        port: {\n            description: 'The web server port number.',\n            type: 'integer',\n            required: true,\n            minimum: 1,\n            maximum: 65535,\n            default: 80\n        }\n    }\n};\n\nmodule.exports = schema;\n```\n\nA `config.js` file can be used instead of the `config.json` file.\n\n```javascript\nvar config = {\n    port: 8080\n};\n\nmodule.exports = config;\n```\n\nBeyond notational convenience, this also allows for nested constructs or code\nthat evaluates the environment at runtime.\n\n## License\n\n(The MIT License)\n\nCopyright (c) 2012 Frank Hellwig\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to\ndeal in the Software without restriction, including without limitation the\nrights to use, copy, modify, merge, publish, distribute, sublicense, and/or\nsell copies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\nIN THE SOFTWARE.\n",
+  "readmeFilename": "README.md",
+  "_id": "pkgconfig@0.0.4",
+  "dist": {
+    "shasum": "983218eec2d05c6c2d9c58a35b728338ddc277eb"
+  },
+  "_from": "pkgconfig"
+}

@@ -1,0 +1,14 @@
+
+
+dependencies:
+
+  # Does package management for us in components/ with original reference in JSON
+  bower: "*"
+
+  # Etc allows us to easily load multiple source configuration files
+  etc: "*"
+
+  # Pkgcloud is infrastructure as a service: layer in between all remote stuff
+  pkgcloud: "*"
+
+  #nconf?

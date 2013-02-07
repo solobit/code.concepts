@@ -1,0 +1,1 @@
+{"files":[{"filename":"fut.js","coverage":100,"hits":1,"misses":0,"sloc":1,"source":{"1":{"line":"exports.instrumented = true;","coverage":2}}}],"hits":1,"misses":0,"sloc":1,"instrumentation":"node-jscoverage","coverage":100}

@@ -1,0 +1,35 @@
+
+# Opiniated comment blocks, the 'official' stuff we can have machines fetch for us.
+
+name: ""
+
+version: "0.0.1"
+
+private: true
+
+dependencies:
+
+  # Generates table of contents for markdown files inside local git repository.
+  doctoc: "*"
+
+  # Quick and dirty literate programming documentation generator, weekend hack
+  docco: "*"
+
+  # Supports extensive markup features, good detection, nice CSS/HTML and works also on CoffeeScript
+  crojsdoc: "*"
+
+  # Great JS with custom tags, exported and persisted code-comment files but no CS
+  dox: "*"
+
+  # Markdown with dox also for CS
+  markdox: "*"
+
+  # The best CS literal tool out there
+  groc: "*"
+
+  # A powerful documentation engine for JS
+  documentjs: "*"
+
+scripts:
+
+  freeze: "npm shrikwrap"

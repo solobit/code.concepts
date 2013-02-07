@@ -1,0 +1,23 @@
+{
+  "name": "coverage-report",
+  "version": "0.0.14",
+  "dependencies": {
+    "jasmine-node": "*",
+    "sprintf": "*"
+  },
+  "bin": {
+    "coverage-report": "bin/coverage-report"
+  },
+  "readme": "Uses node-jscoverage to annotate a node project's source code to make the specs gather test coverage information.\nPrints summary on the coverage info before the process exits.\n\nUsage:\n\n./node_modules/.bin/coverage-report [-h] [-l lib] [-m 100] -- calculate jasmine test coverage using node-coverage\n\nwhere:\n    -h  show this help text\n    -l  lib folder, default: lib\n    -m  min coverage to not show the untested lines\"",
+  "readmeFilename": "README.md",
+  "_id": "coverage-report@0.0.14",
+  "bundleDependencies": [
+    "jasmine-node",
+    "sprintf"
+  ],
+  "description": "Uses node-jscoverage to annotate a node project's source code to make the specs gather test coverage information. Prints summary on the coverage info before the process exits.",
+  "dist": {
+    "shasum": "ea0616ad4357a345960dfbcbf8e236b6cd44b51a"
+  },
+  "_from": "coverage-report"
+}

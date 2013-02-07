@@ -1,0 +1,35 @@
+{
+  "name": "ansinception",
+  "version": "0.1.2",
+  "description": "Colorful exception handler for Node.js with CoffeeScript support and improved nodemon/supervisor compatibility",
+  "author": {
+    "name": "Dennis Kehrig"
+  },
+  "keywords": [
+    "exception",
+    "handler",
+    "node",
+    "nodemon",
+    "supervisor",
+    "coffeescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DennisKehrig/ANSInception.git"
+  },
+  "bugs": "https://github.com/DennisKehrig/ANSInception/issues",
+  "engines": {
+    "node": "*"
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.3.0"
+  },
+  "main": "./lib/exception-handler",
+  "readme": "ANSInception\r\n============\r\n\r\nColorful exception handler for Node.js with CoffeeScript support and improved nodemon/supervisor compatibility\r\n\r\n![Screenshot](https://github.com/DennisKehrig/ANSInception/raw/master/screenshot.png)\r\n\r\nFeatures\r\n--------\r\n\r\n* Quits after a delay to prevent nodemon, supervisor, etc. from eating console.log output sent shortly before the exception was thrown\r\n* Shows up to five lines of code from each entry in the stack trace\r\n* Color codes the offending part of the code (based on the column number)\r\n* Compiles CoffeeScript to show the actual offending code (otherwise the line numbers don't make sense)\r\n* Highlights the file name in stack trace paths\r\n* Uses different colors depending on the location of the code\r\n  (<span style=\"background-color:black;color:#0f0\">green:</span> your code, <span style=\"background-color:black;color:#ff0\">yellow:</span> local module, <span style=\"background-color:black;color:#f0f\">pink:</span> global module/node.js internals)\r\n\r\nUnfortunately registering with 'uncaughtException' has no effect until the next tick.\r\nSo in order to benefit from the exception handler right away, you need to postpone execution of your code.\r\nYou can either do this manually or use the convenience version (see below)\r\n\r\nUsage with CoffeeScript\r\n-----------------------\r\n\r\n__Short version:__\r\n\r\n\trequire('ansinception') ->\r\n\t\t# Your code\r\n\r\n__Long version:__\r\n\r\n\tprocess.on 'uncaughtException', require 'ansinception'\r\n\tprocess.nextTick ->\r\n\t\t# Your code\r\n\r\nUsage with JavaScript\r\n---------------------\r\n\r\n__Short version:__\r\n\r\n\trequire('ansinception')(function() {\r\n\t\t// Your code\r\n\t});\r\n\r\n__Long version:__\r\n\r\n\tprocess.on('uncaughtException', require('ansinception'));\r\n\tprocess.nextTick(function() {\r\n\t\t// Your code\r\n\t});\r\n",
+  "readmeFilename": "README.md",
+  "_id": "ansinception@0.1.2",
+  "dist": {
+    "shasum": "369a510fe2b35855bf496c899771217a2908e9c7"
+  },
+  "_from": "ansinception"
+}

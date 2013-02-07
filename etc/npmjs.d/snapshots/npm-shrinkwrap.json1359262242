@@ -1,0 +1,241 @@
+{
+  "dependencies": {
+    "carrier": {
+      "version": "0.1.8"
+    },
+    "commander": {
+      "version": "1.1.1",
+      "dependencies": {
+        "keypress": {
+          "version": "0.1.0"
+        }
+      }
+    },
+    "parse-key": {
+      "version": "0.1.1"
+    },
+    "shelljs": {
+      "version": "0.1.2"
+    },
+    "readlinestream": {
+      "version": "0.1.0"
+    },
+    "colors": {
+      "version": "0.6.0-1"
+    },
+    "cson": {
+      "version": "1.4.0",
+      "dependencies": {
+        "coffee-script": {
+          "version": "1.4.0"
+        },
+        "js2coffee": {
+          "version": "0.1.3",
+          "dependencies": {
+            "underscore": {
+              "version": "1.4.3"
+            }
+          }
+        }
+      }
+    },
+    "readline-vim": {
+      "version": "0.2.1"
+    },
+    "docpad": {
+      "version": "6.21.7",
+      "dependencies": {
+        "bal-util": {
+          "version": "1.16.1"
+        },
+        "caterpillar": {
+          "version": "1.1.3",
+          "dependencies": {
+            "cli-color": {
+              "version": "0.2.1",
+              "dependencies": {
+                "es5-ext": {
+                  "version": "0.9.1"
+                },
+                "memoizee": {
+                  "version": "0.2.3",
+                  "dependencies": {
+                    "event-emitter": {
+                      "version": "0.2.1"
+                    },
+                    "next-tick": {
+                      "version": "0.1.0"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "express": {
+          "version": "3.0.6",
+          "dependencies": {
+            "connect": {
+              "version": "2.7.2",
+              "dependencies": {
+                "qs": {
+                  "version": "0.5.1"
+                },
+                "formidable": {
+                  "version": "1.0.11"
+                },
+                "bytes": {
+                  "version": "0.1.0"
+                },
+                "pause": {
+                  "version": "0.0.1"
+                }
+              }
+            },
+            "commander": {
+              "version": "0.6.1"
+            },
+            "range-parser": {
+              "version": "0.0.4"
+            },
+            "mkdirp": {
+              "version": "0.3.3"
+            },
+            "cookie": {
+              "version": "0.0.5"
+            },
+            "buffer-crc32": {
+              "version": "0.1.1"
+            },
+            "fresh": {
+              "version": "0.1.0"
+            },
+            "methods": {
+              "version": "0.0.1"
+            },
+            "send": {
+              "version": "0.1.0",
+              "dependencies": {
+                "mime": {
+                  "version": "1.2.6"
+                }
+              }
+            },
+            "cookie-signature": {
+              "version": "0.0.1"
+            },
+            "debug": {
+              "version": "0.7.0"
+            }
+          }
+        },
+        "mime": {
+          "version": "1.2.9"
+        },
+        "query-engine": {
+          "version": "1.5.1"
+        },
+        "semver": {
+          "version": "1.1.2"
+        },
+        "underscore": {
+          "version": "1.4.3"
+        },
+        "backbone": {
+          "version": "0.9.9"
+        },
+        "watchr": {
+          "version": "2.3.3",
+          "dependencies": {
+            "bal-util": {
+              "version": "1.15.4"
+            }
+          }
+        },
+        "yamljs": {
+          "version": "0.1.4",
+          "dependencies": {
+            "argparse": {
+              "version": "0.1.10",
+              "dependencies": {
+                "underscore": {
+                  "version": "1.3.3"
+                },
+                "underscore.string": {
+                  "version": "2.1.1"
+                }
+              }
+            },
+            "glob": {
+              "version": "3.1.17",
+              "dependencies": {
+                "minimatch": {
+                  "version": "0.2.9",
+                  "dependencies": {
+                    "lru-cache": {
+                      "version": "2.0.4"
+                    },
+                    "sigmund": {
+                      "version": "1.0.0"
+                    }
+                  }
+                },
+                "graceful-fs": {
+                  "version": "1.1.14"
+                },
+                "inherits": {
+                  "version": "1.0.0"
+                }
+              }
+            }
+          }
+        },
+        "airbrake": {
+          "version": "0.2.9",
+          "dependencies": {
+            "request": {
+              "version": "2.9.202"
+            },
+            "xmlbuilder": {
+              "version": "0.1.5"
+            },
+            "stack-trace": {
+              "version": "0.0.5"
+            },
+            "hashish": {
+              "version": "0.0.4",
+              "dependencies": {
+                "traverse": {
+                  "version": "0.6.3"
+                }
+              }
+            }
+          }
+        },
+        "growl": {
+          "version": "1.6.1"
+        },
+        "mixpanel": {
+          "version": "0.0.10"
+        }
+      }
+    },
+    "stringify-key": {
+      "version": "0.1.2"
+    },
+    "natural": {
+      "version": "0.1.19",
+      "dependencies": {
+        "sylvester": {
+          "version": "0.0.21"
+        },
+        "apparatus": {
+          "version": "0.0.7"
+        },
+        "underscore": {
+          "version": "1.4.3"
+        }
+      }
+    }
+  }
+}
